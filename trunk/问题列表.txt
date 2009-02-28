@@ -1,0 +1,12 @@
+popup问题
+1，<a href="#" onclick="fn()"></a>
+这种情况下，滚动页面后，点击会出现问题，
+修改为:
+<a href="fn()"></a>
+
+2:
+必须添加文档标准声明:
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+3:修正
+2008/11/28 修正contentType=2时，文本将对话框撑开的问题

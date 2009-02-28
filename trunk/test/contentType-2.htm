@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>无标题页</title>
+      <script type="text/javascript" src="../popup.js"></script>
+    <script>
+    //test
+    function ShowHtmlString()
+         {
+             var strHtml = "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+             var pop=new txooo.ui.Popup({ contentType:2,isReloadOnClose:false,width:340,height:300});
+             pop.setContent("contentHtml",strHtml);
+             pop.setContent("title","html字符串示例");
+             pop.build();
+             pop.show();
+         }
+    </script>
+</head>
+<body>
+    <script>
+        ShowHtmlString();
+    </script>
+</body>
+</html>
