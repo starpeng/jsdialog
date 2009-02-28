@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>无标题页</title>
+    <script type="text/javascript" src="../popup.js"></script>
+    <script>
+            function ShowCallBack(par)
+            {
+                alert("点击了确定");
+                alert(par.id);
+                par.obj.close(); //关闭窗口
+            }
+
+            function ShowConfirm()
+            {
+                 var pop=new txooo.ui.Popup({ contentType:3,isReloadOnClose:true,width:340,height:80});
+                 pop.setContent("title","confirm对话框示例");
+                 pop.setContent("confirmCon","confirm对话框的内容");
+                 pop.setContent("callBack",ShowCallBack);
+                 pop.setContent("parameter",{id:"divCall",str : "点击确定后显示的字符串",obj:pop});
+                 pop.build();
+                 pop.show();
+            }
+    </script>
+</head>
+<body>
+<script>    alert("dddd"); </script>
+<button onclick="ShowConfirm()">ddd</button>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<script type="text/javascript" src="../popup.js"></script>
+<script>
+
+    /*
+        更改对话框样式
+    */
+function callback(par) {
+
+    alert(par);
+}
+    
+
+function show(url)
+{
+    var pop = new txooo.ui.Popup({contentType: 1, isReloadOnClose: true, width: 440, height: 390 });
+
+    //设置对话框的颜色，包括:
+    //标题字体颜色、
+    pop.color.wColor = "red";
+    
+    //背景颜色包括标题的颜色、
+    pop.color.tColor = "#EEEEEE";
+    
+    //覆盖层颜色。
+    pop.color.cColor = "black"; 
+    
+	
+	pop.setContent("title","编辑分类");
+	pop.setContent("contentUrl",url);
+	pop.build();
+	pop.show();
+	return false;
+}
+</script>
+</head>
+<body>
+
+<input type="button" onclick="javascript:show('url.htm');" value="提交"/>
+
+</body>
+</html>
