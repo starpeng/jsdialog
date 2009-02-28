@@ -1,4 +1,5 @@
-﻿if (!txooo)
+﻿//version: 1.0.0
+if (!txooo)
 {
     var txooo = {};
 }
