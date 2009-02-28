@@ -76,20 +76,6 @@
 	}
 };
 
-    txooo.ui.Popup = Popup;
 
-    //快捷访问
-    txooo.ui.alert = function(title, content, callback, par) {
-        var pop = new Popup({ contentType: 4, isReloadOnClose: false, width: 340, height: 100 });
-        pop.setContent("title", title);
-        pop.setContent("alertCon", content);
-
-        if (callback && par) {
-            pop.setContent("callBack", callback); pop.setContent("parameter", { popup: pop, param: par });
-        }
-        pop.build();
-        pop.show();
-        return false;
-    };
 
     
