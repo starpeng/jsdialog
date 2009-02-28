@@ -1,16 +1,18 @@
 ﻿//util
-    //解决弹出窗口，框架显示问题
-    var doc = document;
+//解决弹出窗口，框架显示问题
+var doc = document;
     
-    if (!Array.prototype.push) {
-        Array.prototype.push = function() {
+if (!Array.prototype.push) {
+	Array.prototype.push = function() {
             var startLength = this.length;
             for (var i = 0; i < arguments.length; i++) this[startLength + i] = arguments[i];
             return this.length
-        }
-    };
+    	};
+}
 
-    function G() {
+var isIE6 = !(navigator.userAgent.toLowerCase().indexOf("opera") > -1) && ((document.all) ? true : false) && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 6);
+
+function G() {
         var elements = new Array();
         for (var i = 0; i < arguments.length; i++) {
             var element = arguments[i];
@@ -19,62 +21,61 @@
             elements.push(element);
         };
         return elements
-    };
+}
 
-    Function.prototype.bind = function(object) {
+Function.prototype.bind = function(object) {
         var __method = this;
         return function() {
             __method.apply(object, arguments);
         }
-    };
+};
     
-    Function.prototype.bindAsEventListener = function(object) {
+Function.prototype.bindAsEventListener = function(object) {
         var __method = this;
         return function(event) {
             __method.call(object, event || window.event)
         }
-    };
+};
     
-    Object.extend = function(destination, source) {
+Object.extend = function(destination, source) {
         for (property in source) {
 
             destination[property] = source[property]
         };
         return destination
-    };
-
-    var isIE6 = !(navigator.userAgent.toLowerCase().indexOf("opera") > -1) && ((document.all) ? true : false) && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 6);
+};
 
 
-    //修正firefox问题
-    // !window.Event ===>!Event
-    if (!Event) {
-        var Event = new Object()
-    };
+
+//修正firefox问题
+// !window.Event ===>!Event
+if (!Event) {
+        var Event = new Object();
+}
     
-    Object.extend(Event,{
+Object.extend(Event,{
     observers: false, element: function(event) {
         return event.target || event.srcElement
-    }, 
-    
-    isLeftClick: function(event) {
+}, 
+
+isLeftClick: function(event) {
 	    return (((event.which) && (event.which == 1)) || ((event.button) && (event.button == 1)))
-    }, 
+}, 
     
-    pointerX: function(event) {
+pointerX: function(event) {
 	    return event.pageX || (event.clientX + (doc.documentElement.scrollLeft || doc.body.scrollLeft))
-    }, 
+}, 
     
-    pointerY: function(event) {
+pointerY: function(event) {
 	    return event.pageY || (event.clientY + (doc.documentElement.scrollTop || doc.body.scrollTop))
-    }, 
+}, 
     
-    stop: function(event) {
-	    if (event.preventDefault) {
+stop: function(event) {
+	if (event.preventDefault) {
 		    event.preventDefault();
 		    event.stopPropagation()
-    }
-    else {
+	    }
+	    else {
         event.returnValue = false;
         event.cancelBubble = true
     }
@@ -163,4 +164,4 @@ function space(flag) {
             ele = doc.getElementById("usrbar_popup");
             if (typeof (ele) != "undefined" && ele != null) ele.id = "usrbar"
         }
-};
+}
